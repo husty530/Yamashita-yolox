@@ -34,9 +34,10 @@ def make_category(names_file):
   tmps = []
   items = []
   with open(names_file, 'r') as f:
-    item = f.readline()
-    if len(item) != 0:
-      items.append(item)
+    lines = f.readlines()
+    for l in lines:
+      if len(l) != 0:
+        items.append(l.strip())
   for i in range(len(items)):
     tmp = cl.OrderedDict()
     tmp["id"] = i
